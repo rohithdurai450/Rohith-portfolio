@@ -1,0 +1,384 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Rohith Durai | Portfolio</title>
+<meta name="description" content="Rohith Durai - ECE Student • Projects: Smart Helmet, Intelligent Street Illumination, Buyfinity" />
+<style>
+  /* -------------------------
+     Minimal reset & fonts
+     -------------------------*/
+  :root{
+    --bg-1:#0f1724;
+    --bg-2:#f7f9fc;
+    --card:#ffffff;
+    --muted:#6b7280;
+    --accent-1:#06b6d4; /* cyan */
+    --accent-2:#7c3aed; /* purple */
+    --glass: rgba(255,255,255,0.06);
+    --maxw:1100px;
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%;margin:0;font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;background:linear-gradient(180deg,#fbfdff 0%, #eef2f7 30%, #e6eef8 100%);color:#071124; -webkit-font-smoothing:antialiased}
+  a{color:inherit}
+  .container{max-width:var(--maxw);margin:0 auto;padding:28px}
+  /* -------------------------
+     header with animated gradient
+     -------------------------*/
+  header.site-header{
+    position:sticky;top:0;z-index:60;padding:18px 0;background:linear-gradient(90deg, rgba(255,255,255,0.75), rgba(255,255,255,0.55));
+    backdrop-filter: blur(6px);border-bottom:1px solid rgba(7,17,36,0.04)
+  }
+  .header-inner{display:flex;align-items:center;justify-content:space-between;gap:12px}
+  .brand{display:flex;align-items:center;gap:12px}
+  .logo{
+    width:54px;height:54px;border-radius:12px;
+    background:linear-gradient(135deg,var(--accent-2),var(--accent-1));
+    color:white;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:18px;
+    box-shadow: 0 8px 24px rgba(124,58,237,0.12);
+  }
+  .brand h1{font-size:1.15rem;margin:0}
+  .brand small{display:block;color:var(--muted);font-size:12px;margin-top:4px}
+  nav.header-nav{display:flex;gap:14px;align-items:center}
+  nav.header-nav a{padding:8px 12px;border-radius:8px;text-decoration:none;color:#0b1220;font-weight:600}
+  nav.header-nav a:hover{background:rgba(11,17,36,0.04)}
+  .cta-primary{background:linear-gradient(90deg,var(--accent-1),var(--accent-2));color:white;padding:8px 12px;border-radius:10px;font-weight:800;box-shadow:0 8px 30px rgba(7,17,36,0.08)}
+  /* -------------------------
+     hero
+     -------------------------*/
+  .hero{display:grid;grid-template-columns:1fr 380px;gap:28px;align-items:center;padding:48px 0}
+  .hero-left{padding:8px}
+  .eyebrow{display:inline-block;background:linear-gradient(90deg,rgba(6,182,212,0.08),rgba(124,58,237,0.08));color:var(--accent-2);padding:6px 10px;border-radius:999px;font-weight:700}
+  .title{font-size:2.1rem;margin:12px 0;line-height:1.05}
+  .subtitle{color:var(--muted);margin-bottom:18px;min-height:1.2em}
+  .hero-cta{display:flex;gap:12px;flex-wrap:wrap}
+  .btn{
+    padding:10px 14px;border-radius:12px;font-weight:700;border:0;cursor:pointer;transition:transform .18s ease, box-shadow .18s ease;
+    display:inline-flex;gap:10px;align-items:center;text-decoration:none;color:white;
+  }
+  .btn-primary{background:linear-gradient(90deg,var(--accent-1),var(--accent-2));box-shadow:0 10px 30px rgba(124,58,237,0.12)}
+  .btn-ghost{background:transparent;color:var(--accent-2);border:1px solid rgba(11,17,36,0.06)}
+  .btn:active{transform:translateY(1px)}
+  .meta-row{display:flex;gap:18px;margin-top:18px;flex-wrap:wrap}
+  .meta{background:var(--card);padding:12px 14px;border-radius:10px;box-shadow:0 8px 24px rgba(11,17,36,0.04);min-width:150px}
+  .meta .k{font-weight:800}
+  .muted{color:var(--muted)}
+  /* -------------------------
+     profile card (right)
+     -------------------------*/
+  .profile-card{background:linear-gradient(180deg,#ffffff,#f8fbff);border-radius:12px;padding:18px;box-shadow:0 18px 50px rgba(7,17,36,0.06)}
+  .profile-photo{height:240px;border-radius:10px;background:linear-gradient(135deg,var(--accent-1),var(--accent-2));display:flex;align-items:center;justify-content:center;color:white;font-weight:800;font-size:22px}
+  .profile-stats{display:flex;gap:8px;justify-content:space-between;margin-top:12px}
+  .socials{display:flex;gap:12px;margin-top:12px}
+  .socials a{padding:8px 12px;border-radius:10px;background:rgba(0,0,0,0.03);text-decoration:none;color:#0b1220;font-weight:700}
+  /* -------------------------
+     projects
+     -------------------------*/
+  section{padding:40px 0}
+  .section-title{font-size:1.35rem;color:var(--accent-2);margin-bottom:12px}
+  .projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .card{
+    background:var(--card);border-radius:12px;padding:18px;box-shadow:0 10px 30px rgba(11,17,36,0.04);
+    transition:transform .36s cubic-bezier(.2,.9,.2,1), box-shadow .36s ease; transform-origin:center;
+  }
+  .card:hover{transform:translateY(-10px) rotateX(2deg);box-shadow:0 28px 60px rgba(7,17,36,0.1)}
+  .card h3{margin-top:0;color:var(--accent-1)}
+  .card p{color:var(--muted)}
+  .tech{margin-top:12px;font-weight:700;color:var(--muted)}
+  /* tilt effect helper */
+  .tilt-wrap{perspective:1000px}
+  .tilt-inner{transform-style:preserve-3d;will-change:transform;transition:transform .12s linear}
+  /* -------------------------
+     contact form (name + message)
+     - using mailto: (opens user's email client)
+     -------------------------*/
+  .contact-grid{display:grid;grid-template-columns:1fr 420px;gap:18px;align-items:start}
+  .contact-card{background:var(--card);padding:18px;border-radius:12px;box-shadow:0 10px 30px rgba(11,17,36,0.04)}
+  label{display:block;margin-bottom:8px;font-weight:700}
+  input[type="text"], input[type="email"], textarea{
+    width:100%;padding:10px;border-radius:8px;border:1px solid rgba(11,17,36,0.06);margin-bottom:12px;font-size:14px;
+  }
+  textarea{min-height:120px;resize:vertical}
+  .hint{font-size:13px;color:var(--muted)}
+  /* toast & confetti container */
+  .toast{position:fixed;right:20px;bottom:20px;background:linear-gradient(90deg,var(--accent-1),var(--accent-2));color:white;padding:12px 18px;border-radius:10px;box-shadow:0 8px 30px rgba(7,17,36,0.12);display:none;z-index:9999}
+  /* footer */
+  footer{padding:28px 0;text-align:center;color:var(--muted);border-top:1px solid rgba(11,17,36,0.04);margin-top:26px}
+  footer a{color:var(--accent-1);font-weight:700;text-decoration:none}
+  /* responsive */
+  @media(max-width:1000px){
+    .hero{grid-template-columns:1fr}
+    .projects-grid{grid-template-columns:1fr 1fr}
+    .contact-grid{grid-template-columns:1fr}
+    .profile-photo{height:200px}
+  }
+  @media(max-width:640px){
+    .projects-grid{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <div class="logo">RD</div>
+        <div>
+          <h1>Rohith Durai</h1>
+          <small>3rd Year • ECE • Veltech High Tech</small>
+        </div>
+      </div>
+
+      <nav class="header-nav" aria-label="Main navigation">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact" class="cta-primary">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-left">
+        <div class="eyebrow">Electronics • IoT • Web</div>
+        <h2 class="title">I build practical safety-first IoT systems & clean web experiences.</h2>
+        <div class="subtitle" id="typed-subtitle">Embedded systems • Unity • Full-stack</div>
+
+        <div class="hero-cta" style="margin-top:18px">
+          <a class="btn btn-primary" href="#projects">See Projects</a>
+          <a class="btn btn-ghost" href="https://0fgruy-xq.myshopify.com/" target="_blank" rel="noopener">Buyfinity Store →</a>
+        </div>
+
+        <div class="meta-row">
+          <div class="meta"><div class="k">CGPA</div><div class="muted">7.7</div></div>
+          <div class="meta"><div class="k">College</div><div class="muted">Veltech High Tech</div></div>
+          <div class="meta"><div class="k">Email</div><div class="muted">rohithdurai450@gmail.com</div></div>
+        </div>
+      </div>
+
+      <aside class="profile-card">
+        <div class="profile-photo">Profile Photo Placeholder</div>
+        <div class="profile-stats">
+          <div style="flex:1">
+            <div style="font-weight:800">Current Project</div>
+            <div class="muted">Smart Helmet with Alcohol Detection</div>
+          </div>
+          <div style="flex:1;text-align:right">
+            <div style="font-weight:800">Mini Project</div>
+            <div class="muted">Intelligent Street Illumination System</div>
+          </div>
+        </div>
+        <div class="socials">
+          <a href="https://github.com/rohithdurai450" target="_blank">GitHub</a>
+          <a href="https://www.linkedin.com/in/rohith-durai-940b4336b" target="_blank">LinkedIn</a>
+        </div>
+      </aside>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="section-title">About</div>
+      <p class="muted">I’m Rohith — an Electronics & Communication student passionate about building embedded safety systems and clean user experiences. I bring hardware + software together: sensors, microcontrollers, simple cloud logging and user-first web front ends.</p>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <div class="section-title">Selected Projects</div>
+
+      <div class="projects-grid">
+        <div class="card tilt-wrap" data-tilt>
+          <div class="tilt-inner">
+            <h3>Smart Helmet with Alcohol Detection</h3>
+            <p class="muted">A helmet prototype that measures rider alcohol (MQ-3), alerts the rider, and blocks ignition via an interfaced microcontroller — includes Bluetooth logging capability and mobile alerting (planned).</p>
+            <div class="tech">MQ-3 • Microcontroller • Bluetooth • Embedded C</div>
+          </div>
+        </div>
+
+        <div class="card tilt-wrap" data-tilt>
+          <div class="tilt-inner">
+            <h3>Intelligent Street Illumination System</h3>
+            <p class="muted">Mini project to reduce power use using ambient light sensing (LDR) and motion detection (PIR). Lights dim when no movement; full brightness when activity is detected.</p>
+            <div class="tech">Arduino • LDR • PIR • Relay</div>
+          </div>
+        </div>
+
+        <div class="card tilt-wrap" data-tilt>
+          <div class="tilt-inner">
+            <h3>Buyfinity — E-commerce (Dropshipping)</h3>
+            <p class="muted">A clean store concept for everyday essentials with high-quality photography and optimized product pages.</p>
+            <p class="tech"><a href="https://0fgruy-xq.myshopify.com/" target="_blank" rel="noopener">Open Buyfinity Store</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="section-title">Contact & Leave a Message</div>
+
+      <div class="contact-grid">
+        <!-- left: contact form -->
+        <div class="contact-card">
+          <form id="contactForm">
+            <label for="visitorName">Your name</label>
+            <input id="visitorName" name="name" type="text" placeholder="Jane Doe" required>
+
+            <label for="visitorEmail">Your email</label>
+            <input id="visitorEmail" name="email" type="email" placeholder="you@example.com" required>
+
+            <label for="visitorMsg">Message</label>
+            <textarea id="visitorMsg" name="message" placeholder="Hi Rohith — I liked your Smart Helmet project..." required></textarea>
+
+            <div class="hint">Your message will open in your email client so it reaches rohithdurai450@gmail.com directly.</div>
+
+            <div style="margin-top:12px">
+              <button type="submit" class="btn btn-primary">Send Message</button>
+              <button type="button" id="copyEmail" class="btn btn-ghost" style="margin-left:8px">Copy Email</button>
+            </div>
+          </form>
+        </div>
+
+        <!-- right: quick contact info -->
+        <aside class="contact-card">
+          <div style="font-weight:800">Quick Contact</div>
+          <p class="muted" style="margin-top:6px">Email: <a href="mailto:rohithdurai450@gmail.com">rohithdurai450@gmail.com</a></p>
+          <p class="muted">LinkedIn: <a href="https://www.linkedin.com/in/rohith-durai-940b4336b" target="_blank">View profile</a></p>
+
+          <div style="margin-top:18px">
+            <div style="font-weight:800">Why message?</div>
+            <p class="muted">Ask about joining projects, internships, questions on IoT/embedded systems, or collaboration ideas.</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <div class="toast" id="toast">Message prepared — your email client will open. 🎉</div>
+
+  <footer>
+    <div class="container">
+      <div>© 2025 Rohith Durai • Veltech High Tech</div>
+      <div style="margin-top:8px"><a href="mailto:rohithdurai450@gmail.com">Email</a> &nbsp;•&nbsp; <a href="https://www.linkedin.com/in/rohith-durai-940b4336b" target="_blank">LinkedIn</a></div>
+    </div>
+  </footer>
+
+  <script>
+  /* -------------------------
+     small interactive scripts:
+     - typed subtitle
+     - tilt card effect
+     - reveal on scroll
+     - contact form -> mailto:
+     - simple confetti
+     -------------------------*/
+
+  // typed subtitle (small)
+  (function(){
+    const el = document.getElementById('typed-subtitle');
+    const phrases = ['Embedded systems • Unity • Full-stack', 'IoT • Safety-focused solutions', 'Sensors • Microcontrollers • Web'];
+    let pi=0, ci=0;
+    function step(){
+      const p = phrases[pi];
+      el.textContent = p.slice(0, ++ci);
+      if(ci === p.length){ setTimeout(()=>{ ci=0; pi=(pi+1)%phrases.length; step(); }, 1100); }
+      else setTimeout(step, 40);
+    }
+    step();
+  })();
+
+  // tilt effect for cards (mouse)
+  (function(){
+    document.querySelectorAll('[data-tilt]').forEach(wrap=>{
+      const inner = wrap.querySelector('.tilt-inner') || wrap;
+      wrap.addEventListener('mousemove', e=>{
+        const r = wrap.getBoundingClientRect();
+        const px = (e.clientX - r.left) / r.width;
+        const py = (e.clientY - r.top) / r.height;
+        const rx = (py - 0.5) * 8; // tilt x
+        const ry = (px - 0.5) * -12; // tilt y
+        inner.style.transform = rotateX(${rx}deg) rotateY(${ry}deg) translateZ(6px);
+      });
+      wrap.addEventListener('mouseleave', ()=> inner.style.transform = rotateX(0deg) rotateY(0deg));
+    });
+  })();
+
+  // reveal on scroll
+  (function(){
+    const obs = new IntersectionObserver((entries)=>{
+      entries.forEach(en=>{
+        if(en.isIntersecting) en.target.style.opacity = 1;
+      });
+    }, {threshold:.12});
+    document.querySelectorAll('section, .card, .profile-card').forEach(el=>{
+      el.style.opacity = 0; obs.observe(el);
+    });
+  })();
+
+  // simple toast
+  function showToast(msg= 'Sent!'){
+    const t = document.getElementById('toast');
+    t.textContent = msg; t.style.display='block'; t.style.opacity=1;
+    setTimeout(()=>{ t.style.opacity=0; setTimeout(()=>t.style.display='none',300); }, 2800);
+  }
+
+  // tiny confetti (canvas-free poly)
+  function burstConfetti(){
+    // create colored dots that fade
+    for(let i=0;i<30;i++){
+      const d = document.createElement('div');
+      document.body.appendChild(d);
+      const size = 6 + Math.random()*10;
+      d.style.width = d.style.height = size+'px';
+      d.style.position = 'fixed';
+      d.style.left = (50 + (Math.random()-0.5)*40) + '%';
+      d.style.top = '30%';
+      d.style.background = ['#06b6d4','#7c3aed','#ffb86b','#34d399'][Math.floor(Math.random()*4)];
+      d.style.borderRadius = '3px';
+      d.style.opacity = 1;
+      d.style.transform = translateY(0) translateX(0) rotate(${Math.random()*360}deg);
+      d.style.zIndex = 9999;
+      const dx = (Math.random()-0.5)*800;
+      const dy = -500 - Math.random()*200;
+      d.animate([
+        { transform: translate(0px, 0px) rotate(0deg), opacity:1 },
+        { transform: translate(${dx}px, ${dy}px) rotate(${Math.random()*720}deg), opacity:0 }
+      ], {duration: 1400 + Math.random()*500, easing:'cubic-bezier(.2,.8,.2,1)'});
+      setTimeout(()=>d.remove(),2100);
+    }
+  }
+
+  // form -> mailto (opens user's mail client with prefilled subject/body)
+  (function(){
+    const form = document.getElementById('contactForm');
+    const copyBtn = document.getElementById('copyEmail');
+    const targetEmail = 'rohithdurai450@gmail.com';
+
+    copyBtn.addEventListener('click', ()=>{
+      navigator.clipboard?.writeText(targetEmail).then(()=> showToast('Email copied ✅'), ()=> showToast('Copy failed'));
+    });
+
+    form.addEventListener('submit', (ev)=>{
+      ev.preventDefault();
+      const name = encodeURIComponent(document.getElementById('visitorName').value.trim());
+      const email = encodeURIComponent(document.getElementById('visitorEmail').value.trim());
+      const msg = encodeURIComponent(document.getElementById('visitorMsg').value.trim());
+      if(!name || !email || !msg){ showToast('Please complete all fields'); return; }
+
+      const subject = encodeURIComponent(Portfolio message from ${name});
+      const body = encodeURIComponent(Name: ${decodeURIComponent(name)}%0AEmail: ${decodeURIComponent(email)}%0A%0AMessage:%0A${decodeURIComponent(msg)}%0A%0A--%0ASent from portfolio page);
+      // open mail client
+      const mailto = mailto:${targetEmail}?subject=${subject}&body=${body};
+      window.location.href = mailto;
+
+      // UI feedback
+      showToast('Preparing email — your mail client will open');
+      burstConfetti();
+      // optionally reset
+      setTimeout(()=>form.reset(),600);
+    });
+  })();
+  </script>
+</body>
+</html>
